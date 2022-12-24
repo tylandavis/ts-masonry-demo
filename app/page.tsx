@@ -1,91 +1,55 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
-
+import Image from "next/image";
+import Masonry from "../components/Masonry";
 export default function Home() {
+
+  type galleryType = {url: string, w: number, h: number, alt: string}[];
+
+  const gallery: galleryType = [
+    { url: "/1.jpg", w: 800, h: 800, alt: "1" },
+    { url: "/2.jpg", w: 800, h: 1200, alt: "2" },
+    { url: "/3.jpg", w: 1200, h: 800, alt: "3" },
+    { url: "/4.jpg", w: 800, h: 800, alt: "4" },
+    { url: "/5.jpg", w: 800, h: 1200, alt: "5" },
+    { url: "/6.jpg", w: 1200, h: 800, alt: "6" },
+    { url: "/7.jpg", w: 800, h: 800, alt: "7" },
+    { url: "/8.jpg", w: 800, h: 1200, alt: "8" },
+    { url: "/9.jpg", w: 1200, h: 800, alt: "9" },
+    { url: "/10.jpg", w: 800, h: 800, alt: "10" },
+    { url: "/11.jpg", w: 800, h: 1200, alt: "11" },
+    { url: "/12.jpg", w: 1200, h: 800, alt: "12" },
+    { url: "/13.jpg", w: 800, h: 800, alt: "13" },
+    { url: "/14.jpg", w: 800, h: 1200, alt: "14" },
+    { url: "/15.jpg", w: 1200, h: 800, alt: "15" },
+    { url: "/16.jpg", w: 800, h: 800, alt: "16" },
+    { url: "/17.jpg", w: 800, h: 1200, alt: "17" },
+    { url: "/18.jpg", w: 1200, h: 800, alt: "18" },
+    { url: "/19.jpg", w: 800, h: 800, alt: "19" },
+    { url: "/20.jpg", w: 800, h: 1200, alt: "20" },
+    { url: "/21.jpg", w: 1200, h: 800, alt: "21" },
+    { url: "/22.jpg", w: 800, h: 800, alt: "22" },
+    { url: "/23.jpg", w: 800, h: 1200, alt: "23" },
+    { url: "/24.jpg", w: 1200, h: 800, alt: "24" },
+    { url: "/25.jpg", w: 800, h: 800, alt: "25" },
+    { url: "/26.jpg", w: 800, h: 1200, alt: "26" },
+    { url: "/27.jpg", w: 1200, h: 800, alt: "27" },
+    { url: "/28.jpg", w: 800, h: 800, alt: "28" },
+    { url: "/29.jpg", w: 800, h: 1200, alt: "29" },
+    { url: "/30.jpg", w: 1200, h: 800, alt: "30" },
+    { url: "/31.jpg", w: 800, h: 800, alt: "31" },
+    { url: "/32.jpg", w: 800, h: 1200, alt: "32" },
+    { url: "/33.jpg", w: 1200, h: 800, alt: "33" },
+    { url: "/34.jpg", w: 800, h: 800, alt: "34" },
+    { url: "/35.jpg", w: 800, h: 1200, alt: "35" },
+    { url: "/36.jpg", w: 1200, h: 800, alt: "36" },
+  ];
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+    <main>
+      <Masonry images={gallery} gap={'1rem'} columns={[
+        { columns: 2, breakpoint: 200 },
+        { columns: 3, breakpoint: 600 },
+        { columns: 6, breakpoint: 1200 },
+      ]} />
     </main>
   )
 }
